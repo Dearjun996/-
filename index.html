@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box1{
+				width: 1920px;
+				height: 1080px;
+				margin: 0,auto;
+				
+			}
+			.box2{
+				width: 500px;
+				height: 300px;
+				text-align: center;
+				border: 2px solid pink;
+				padding-top: 0px;
+				margin-left: 500px;
+				margin-top: 20px;
+			}
+			.box2 input{
+				margin: 10px;
+				line-height: 10px;
+				
+			}
+			#yzm{
+				width: 10%;
+			}
+			#btn{
+				width: 20%;
+			}
+			#spans{
+				width: 20px;
+				height: 5px;
+				border: 2px solid blue;
+			}
+			#username{
+				width: 20%;
+				height: 6%;
+				
+			}
+			#userpwd{
+				width: 21%;
+				height: 6%;
+			}
+			span{
+				font-size: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box1">
+			
+
+		<form class="box2">
+			
+
+			<p style="font-size: 20px;">2048登录器</p>
+			用户名:<input type="text" id="username"/>
+			<br/>
+			密码:<input type="password" id="userpwd"/>
+			<br/>
+			验证码:<input type="text" id="yzm"/>
+				<span id="spans"></span>
+			<br/>
+			<input type="button" id="btn" value="登录" />
+			<br/>
+			<span id="hours">00</span>
+			:
+			<span id="minutes">00</span>
+			:
+			<span id="seconds">00</span>
+			<p style="padding-top: 5px;font-size: 20px;">君少出品</p>
+
+			
+		</form>
+		</div>
+		
+		<script type="text/javascript">
+			var username=document.getElementById("username"),
+				userpwd=document.getElementById("userpwd"),
+				yzm=document.getElementById("yzm"),
+				btn=document.getElementById("btn"),
+				spans=document.getElementById("spans"),
+				hours = document.getElementById("hours"),
+				minutes = document.getElementById("minutes"),
+				seconds = document.getElementById("seconds");
+				
+				
+				var jun=Math.floor(Math.random()*9000)+1000
+				spans.innerHTML=jun;
+				
+				btn.onclick=function(){
+					if(username.value=="何大侠"){
+						if(userpwd.value=="123")
+						{
+							if(yzm.value==spans.innerHTML){
+								location.href="www.baidu.com"
+							}else{
+								alert("验证码不对")
+							}
+							
+						}else{
+							alert("密码不对")
+						}
+					}else{
+						alert("用户名不对")
+					}
+				}
+				function fn(){
+				    var date = new Date();
+				
+				    hours.innerHTML  = time(date.getHours());
+				    minutes.innerHTML = time(date.getMinutes());
+				    seconds.innerHTML = time(date.getSeconds());
+				}
+				setInterval(function(){
+				
+				        fn();
+				
+				},1000)
+				function time(str){
+				
+				    if(str<10){
+				        return "0"+str;
+				    }else{
+				        return str;
+				    }
+				
+				}
+				
+		</script>
+	</body>
+</html>
